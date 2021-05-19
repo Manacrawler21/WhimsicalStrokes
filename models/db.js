@@ -8,7 +8,7 @@ const Order = require('./OrderModel.js');
 
 
 // ccapdev-mongoose is the name of the database
-const url = 'mongodb://localhost:27017/Whimsical-Strokes';
+const url = 'mongodb+srv://Jace:M1ndsculpt@cluster0.iluwt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'; //mongodb://localhost:27017/Whimsical-Strokes';
 
 // additional connection options
 const options = {
