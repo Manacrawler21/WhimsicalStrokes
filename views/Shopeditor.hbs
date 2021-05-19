@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/Main.css">
+    </head>
+    <body>
+        <div class="Navbar">
+            <div class="logo">
+                <a href="/"><img src="/images/Logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+    
+                </ul>
+            </nav>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="/uploads/{{prof}}.png" class="pfp" style="margin-bottom: 16px;"></button>
+                    <div class="dropdown-content">
+                        <ul style="list-style-type: none;">
+                            <a href="/shop/{{username}}"><i class="option">My Shop</i></a>
+                            <a href="/orders"><i class="option">Orders</i></a>
+                            <a href="/commissions"><i class="option">Commissions</i></a>
+                            <a href="/logout"><i class="option">Log Out</i></a>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+        <center>
+        <div style="margin: 50px;">
+            <div style="margin-left: 50px;padding: 32px; text-align:left; background-color:#969696; border-radius: 35px; width:400px;">
+        <label>Change user name and shop product</label>
+        <form name="shopName" method = "post" action="/edit/updateInfo">
+            <input type="text" name="username" placeholder="username" style=" margin-top:6px;" required><br>
+            <input type="text" name="userproduct" placeholder="what are you selling" required>
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <p>{{error}}</p><br>
+        <label>Change password</label>
+         <form name="Password" method = "post" action="/edit/updatePassword">
+            <input type="text" name="pw" placeholder="new password" minlength="8" required> 
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Change description</label>
+         <form name="shopName" method = "post" action="/edit/updateDesc">
+            <input type="text" name="desc" placeholder="description" required> 
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Change Minimum Price (Enter in USD)</label>
+         <form name="minPrice" method = "post" action="/edit/updatePrice">
+            <input type="Number" name="price" placeholder="Minimum Price" min="1" step=".01" required> 
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Change user profile picture</label>
+        <form name="pfp" method = "post" action="/edit/updatePFP" enctype="multipart/form-data">
+            <input type="file" name="{{username}}pfp" accept="image/jpg, image/jpeg, image/png" required>
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Change user search picture</label>
+        <form name="background" method = "post" action="/edit/updateBG" enctype="multipart/form-data">
+            <input type="file" name="{{username}}bg" accept="image/jpg, image/jpeg, image/png" required>
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Change user commission sheet</label>
+        <form name="Commission Sheet" method = "post" action="/edit/updateCS" enctype="multipart/form-data">
+            <input type="file" name="{{username}}cs" accept="image/jpg, image/jpeg, image/png" required>
+            <input type="submit" class="btn" style=" padding:6;">
+        </form><br>
+        <label>Open your shop (Your shop will be visible in search)</label>
+        <form name="Open" method = "post" action="/edit/openShop">
+            <input type="submit" class="btn" style=" padding:6;" value="Open">
+        </form>
+        <label>Close your shop (Your shop will not be visible in search)</label>
+        <form name="Close" method = "post" action="/edit/closeShop">
+            <input type="submit" class="btn" style=" padding:6;" value="Close">
+        </form>
+        <label>Delete your account</label>
+        <form name="Delete" method = "post" action="/edit/deleteAcc">
+            <input type="submit" class="btn" style=" padding:6;" value="Delete">
+        </form>
+    </div>
+        </div></center>
+    </body>
+</html>

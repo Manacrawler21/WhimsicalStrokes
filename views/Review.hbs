@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/Main.css">
+    </head>
+    <body>
+        <div class="Navbar">
+            <div class="logo">
+                <a href="/"><img src="/images/Logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+    
+                </ul>
+            </nav>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="/uploads/{{prof}}.png" class="pfp" style="margin-bottom: 16px;"></button>
+                    <div class="dropdown-content">
+                        <ul style="list-style-type: none;">
+                            <a href="/shop/{{user}}"><i class="option">My Shop</i></a>
+                            <a href="/orders"><i class="option">Orders</i></a>
+                            <a href="/commissions"><i class="option">Commissions</i></a>
+                            <a href="/logout"><i class="option">Log Out</i></a>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+        <center>
+        <div style="margin: 50px;">
+            <div style="margin-left: 50px;padding: 32px; text-align:left; background-color:#969696; border-radius: 35px; width:400px;">
+        <label>Add a review</label>
+        <form name="ReviewForm" method = "post" action="/{{link}}/{{id}}">
+            {{#if stars}}
+            <input type="number" name="stars" placeholder="STAR RATING" style="margin: 6px; width: 270px;" min="1" max="5" value="{{stars}}" required>
+            {{else}}
+            <input type="number" name="stars" placeholder="STAR RATING" style="margin: 6px; width: 270px;" min="1" max="5" required>
+            {{/if}}
+
+            {{#if review}}
+			<textarea name="review" rows="4" cols="50" style="border-radius: 10px;" placeholder="   Enter review of artist" minlength="30" required>{{review}}</textarea><br>
+			{{else}}
+            <textarea name="review" rows="4" cols="50" style="border-radius: 10px;" placeholder="   Enter review of artist"  minlength="30" required></textarea><br>
+            {{/if}}
+            <input type="submit" class = 'btn' name="submitOrder" style="margin-top:5px;">
+        </form>
+    </div>
+        </div></center>
+    </body>
+</html>

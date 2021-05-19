@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Whimsical Strokes Login</title>
+  	<link rel="stylesheet" media="all" href="CSS/Main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Rubik&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/validator.min.js" type="text/javascript"></script>
+    <script src="/js/login.js" type="text/javascript"></script>
+</head>
+<body style="background-image: url(images/BG1.jpg); background-size: 108% 150%;">
+	<div class="Navbar" style="padding: 15px;">
+		<div class="logo">
+			<a href="Home.html"><img src="/images/Logo.png" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/Register" class="btn" style="margin-left: 5px; color: #fff; background-color: #f64c72">Register</a></li>
+				<li><a href="/Login" class="btn" style="margin-left: 5px; color: #fff; background-color: #f64c72">Login</a></li>
+				<li><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;"></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="container" >
+		<div class="login" style="min-height: 340px;">
+			<p style="font-size: 30; margin-left: 10px; margin-bottom: 10px;">Login</p>
+			
+			
+			<form method="POST" action="/login" >
+			<!--
+
+			<input type="text" name="Username" style="margin-left: 13px;">
+			<p style="font-size: 14; margin-left: 10px;margin-bottom: 10px;">Password</p>
+			<input type="text" name="Password" style="margin-left: 13px; margin-bottom: 0px;">
+			<input type="submit" name="Enter" class = "btn" style="margin-left: 85px;">
+
+			-->
+
+			<p style="font-size: 14; margin-left: 10px; margin-bottom: 13px;">Username</p>
+			<input type="text" name="username" id="username" style="margin-left: 13px;margin-bottom: 13px;"> <br>
+			<p id="usernameError" class="error" style="font-size: 10px">{{usernameError}}</p>
+			<p id="validUsernameError" class="error" style="font-size: 10px">{{validUsernameError}}</p>	
+
+			<p style="font-size: 14; margin-left: 10px; margin-bottom: 13px;">Password</p>
+			<input type="text" name="pw" id="pw" style="margin-left: 13px;margin-bottom: 13px;"> <br>
+			<p id="pwError" class="error" style="font-size: 10px">{{pwError}}</p><br>	
+
+			<p id="error" class="error" style="font-size: 10px">{{error}}</p>
+
+			<input type="submit" id="submit" class="btn" style="margin-left: 85px;">
+			
+			</form>
+
+			
+
+		</div>
+	</div>
+	
+</body>
+</html>

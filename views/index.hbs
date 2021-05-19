@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Whimiscal Strokes Home</title>
+	<link rel="stylesheet" type="text/css" href="/css/Main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	
+{{#if user}}
+<div class="Navbar">
+		<div class="logo">
+			<a href="/"><img src="/images/Logo.png" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+				
+			</ul>
+		</nav>
+		<div class="dropdown">
+			<button class="dropbtn"><img src="/uploads/{{prof}}.png" class="pfp" style="margin-bottom: 16px;"></button>
+				<div class="dropdown-content">
+					<ul style="list-style-type: none;">
+						<a href="/shop/{{user}}"><i class="option">My Shop</i></a>
+						<a href="/orders"><i class="option">Orders</i></a>
+						<a href="/commissions"><i class="option">Commissions</i></a>
+						<a href="/logout"><i class="option">Log Out</i></a>
+					</ul>
+				</div>
+		</div>
+	</div>
+{{else}}
+<div class="Navbar" style="padding: 15px;">
+		<div class="logo">
+			<a href="/"><img src="/images/Logo.png" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/Register" class="btn" style="margin-left: 5px; color: #fff; background-color: #f64c72">Register</a></li>
+				<li><a href="/Login" class="btn" style="margin-left: 5px; color: #fff; background-color: #f64c72">Login</a></li>
+				<li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+			</ul>
+		</nav>
+	</div>
+{{/if}}
+
+
+	<div class="container">
+		<div class="mainbody">
+			<div class="col2">
+				<h1>Anything you can dream of. At any time.</h1>
+			</div>
+			<div class="col2">
+				<img src="/images/art2.png">
+			</div>
+
+		</div>
+	</div>
+
+	<div class="Products">
+	<label><h1 style="margin-left:45px; margin-top: 30px; margin-bottom: 5px; font-size: 50px;">Artists to choose from</h1></label>
+	<p><i style="margin: 45px;">Choose from our wide selection of artists, ranging from industry professionals to small indipendent freelancers</i></p>
+	<hr>
+	{{#each results}}
+			<a href="/shop/{{username}}"><div class="col4"><img src="/uploads/{{bg}}.png"><hr><div class="info"><img src="/uploads/{{pfp}}.png" class="pfp"><h5>{{username}} is making {{productname}}</h5><h5>{{description}}</h5><h5></h5><h5></h5><h5></h5></div><div class="ratings"><b>{{minPrice}}+ USD </b> <div class="stars">{{#times stars}}<span class="fa fa-star checked"></span>{{/times}}</div> </div></div></a>
+	{{/each}}
+	</div>
+</body>
+</html>

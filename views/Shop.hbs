@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Whimiscal Strokes Home</title>
+	<link rel="stylesheet" type="text/css" href="/css/Main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	{{#if username}}
+<div class="Navbar">
+		<div class="logo">
+			<a href="/"><img src="/images/Logo.png" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>				
+			</ul>
+		</nav>
+		<div class="dropdown">
+			<button class="dropbtn"><img src="/uploads/{{prof}}.png" class="pfp" style="margin-bottom: 16px;"></button>
+				<div class="dropdown-content">
+					<ul style="list-style-type: none;">
+						<a href="/shop/{{username}}"><i class="option">My Shop</i></a>
+						<a href="/orders"><i class="option">Orders</i></a>
+						<a href="/commissions"><i class="option">Commissions</i></a>
+						<a href="/logout"><i class="option">Log Out</i></a>
+					</ul>
+				</div>
+		</div>
+	</div>
+{{else}}
+<div class="Navbar" style="padding: 15px;">
+		<div class="logo">
+			<a href="/"><img src="/images/Logo.png" width="125px"></a>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/Register" class="btn" style="margin-left: -5px; color: #fff; background-color: #f64c72">Register</a></li>
+				<li><a href="/Login" class="btn" style="margin-left: -5px; color: #fff; background-color: #f64c72">Login</a></li>
+				<li><li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+			</ul>
+		</nav>
+	</div>
+{{/if}}
+	<div class="Banner" style="background-color:#f64c72; background-repeat: no-repeat; background-size: cover; display: flex; padding: 13px 25px; height: 375px;" alt="Background image">
+		<div class="col2">
+			<img src="/uploads/{{pfp}}.png" style="border-radius: 50%; height: 300px; width: 300px; display: absolute; margin-left: 80px; border: 5px solid #fff; margin-top: 130px;">
+		</div>
+
+		<div class="col2" style="margin-top: 200px;">
+			<h1 style="color:#fff; font-size: 40px; text-shadow: 1px 1px #969696; margin-bottom: -7px;"> {{shopowner}} is making {{productname}}</h1>
+			<div class="stars" style="font-size: 20px; position: static;margin-left: 27px;">{{#times stars}}<span class="fa fa-star checked"></span> {{/times}}</div>
+		</div>
+
+	</div>
+
+	{{#if author}}
+		<a class="btn" style="margin-left: 1300px;" href="/edit">Edit Shop </a>
+	{{/if}}
+	<div class="shopbody" style="margin: 80px; min-height: 1000px; ">
+	
+		<!-- put body here<br>
+		Should include: <br> -->
+
+		<!-- order section -->
+
+	
+
+	<div style="margin: 5px; margin-top: -40px;">
+		
+		<div class = orderBox style = "height: 200px; margin-bottom: 25px; padding: 25px; float:left;margin: 50px;margin-left: 100px;">
+
+			<div class = col2>
+				<p style="color:#f75f80; font-size: 20px; text-shadow: 1px 1px #969696; margin-top: -19px;"> <b>Order</b> <p>
+				<form method="post" action="/order/{{shopowner}}">
+					<input type="number" name="offer" placeholder="   Enter offer in USD minimum of {{minPrice}} USD" style="margin: 6px; width: 270px;" min="{{minPrice}}" step="0.01">
+					<textarea id="review" name="review" rows="4" cols="50" style="border-radius: 10px;" placeholder="   Enter commission description" minlength="30"></textarea><br>
+					<input type="submit" class = 'btn' name="submitOrder" style="margin-top:5px;">
+				</form>
+
+			</div>
+
+		</div>
+
+<!-- artist description -->
+		<div class = orderBox style = "height: 200px; margin-bottom: 25px; padding: 25px; float: left; margin-left: 100px;">
+			<div class = col>
+					<h2 style = "color:#f75f80;"> About the Artist </h2>
+			</div>
+				<p>{{description}}</p>
+		</div>
+	</div>
+
+	<center>
+<div>
+	<img src="/uploads/{{cs}}.png" style="width: 1400px; height:700px;">
+</div>
+</center>
+<!-- reviews -->
+<center>
+<h2 style="color:#f75f80; font-size: 40px; text-shadow: 1px 1px #969696"> Reviews </h1>
+{{#if reviews}}	
+<div class = mainReviewBox style="text-align: left;">
+	{{#each reviews}}
+		<div class = UserReviewbox>
+				<h3 style = "color:#f75f80; font-size: 20px"> {{client}} <div class="stars" style="margin-left: 0px;">{{#times stars}}<span class="fa fa-star checked"></span>{{/times}}</div></h3>
+				<p style = "font-size: 15px; margin-top: 5px"> {{review}} </p><br>		
+		</div>
+	{{/each}}
+
+</div>
+{{/if}}
+</center>
+</div>
+</body>
+</html>

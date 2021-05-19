@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/css/Main.css">
+    <style type="text/css">
+        
+
+         .SetRowContent {
+            border: 1px hidden rgb(214, 214, 214);
+            display: flex;
+            padding: 8px 10px;
+        }
+
+        #SetColumnContent1 {
+            flex: auto;
+        }
+
+        .AcceptDeclineBTN {
+            display: inline-block;
+            padding: 8px 25px;
+
+            border-radius: 30px;
+            margin: 45px 10px 10px 10px;
+            color: #fff;
+            background-color: #553d67;
+            border: 2px;
+            border-color: #fff;
+        }
+
+        #SetProfileColumn {
+            border-right: 1px hidden rgb(214, 214, 214);
+            width: 164px;
+            height: 70px;
+            text-align: center;
+        }
+
+        .SetImage {
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+        }
+        
+    </style>
+
+
+
+<title>Commissions</title>
+</head>
+<body>
+
+
+        <div class="Navbar">
+            <div class="logo">
+                <a href="/"><img src="/images/Logo.png" width="125px"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><form id="search" method="GET" action="/search"><input type="text" name="search" placeholder="Search for shops" style="padding: 12px 20px;" required></form></li>
+    
+                </ul>
+            </nav>
+            <div class="dropdown">
+                <button class="dropbtn"><img src="/uploads/{{prof}}.png" class="pfp" style="margin-bottom: 16px;"></button>
+                    <div class="dropdown-content">
+                        <ul style="list-style-type: none;">
+                            <a href="/shop/{{user}}"><i class="option">My Shop</i></a>
+                            <a href="/orders"><i class="option">Orders</i></a>
+                            <a href="/commissions"><i class="option">Commissions</i></a>
+                            <a href="/logout"><i class="option">Log Out</i></a>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+
+    <div class="SetRowContent">
+        <div style="font-family: 'Open Sans', sans-serif; margin-left: 30px"><h3>COMMISSIONS</h3></div>
+    </div>
+    {{#each resultOutgoing}}
+    <div class="SetRowContent">
+        <div id="SetColumnContent1">
+            <div class="SetRowContent">
+                <div id="SetProfileColumn">
+                    <b><a href="/">{{client}}</a></b>
+                </div>
+                <div style="font-family: 'Open Sans', sans-serif">
+                <br>
+                 {{description}}
+                </div>
+                <b style="margin-left: 25px;"><br>Offer: {{offer}}USD  Email:{{email}}</b>
+            </div>
+        </div>
+        <a class="AcceptDeclineBTN" style="font-family: 'Open Sans', sans-serif" href="/accept/{{_id}}">ACCEPT</a>
+        <a class="AcceptDeclineBTN" style="font-family: 'Open Sans', sans-serif" href="/reject/{{_id}}">DECLINE</a>
+    </div>
+    {{/each}}
+
+    <div class="SetRowContent" style="margin-top : 20px; margin-left: 30px">
+        <div style="font-family: 'Open Sans', sans-serif"><h3>ACCEPTED COMMISSIONS</h3></div>
+    </div>
+
+    {{#each resultAccepted}}
+    <div class="SetRowContent">
+        <div id="SetColumnContent1">
+            <div class="SetRowContent">
+                <div id="SetProfileColumn">
+                    <b><a href="/">{{client}}</a></b>
+                </div>
+                <div style="font-family: 'Open Sans', sans-serif">
+                <br>
+                 {{description}}
+                </div>
+                <b style="margin-left: 25px;"><br>Offer: {{offer}}USD  Email:{{email}}</b>
+            </div>
+        </div>
+        <a class="AcceptDeclineBTN" style="font-family: 'Open Sans', sans-serif" href="/complete/{{_id}}">FINISH</a>
+    </div>
+    {{/each}}
+
+    <div class="SetRowContent" style="margin-top : 20px; margin-left: 30px">
+        <div style="font-family: 'Open Sans', sans-serif"><h3>COMPLETED COMMISSIONS</h3></div>
+    </div>
+    {{#each resultCompleted}}
+    <div class="SetRowContent">
+        <div id="SetColumnContent1">
+            <div class="SetRowContent">
+                <div id="SetProfileColumn">
+                    <b><a href="/">{{client}}</a></b>
+                </div>
+                <div style="font-family: 'Open Sans', sans-serif">
+                <br>
+                 {{description}}
+                </div>
+                <b style="margin-left: 25px;"><br>Offer: {{offer}}USD  Email:{{email}}</b>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    <div class="SetRowContent" style="margin-top : 20px; margin-left: 30px">
+        <div style="font-family: 'Open Sans', sans-serif"><h3>DECLINED COMMISSIONS</h3></div>
+    </div>
+    {{#each resultRejected}}
+    <div class="SetRowContent">
+        <div id="SetColumnContent1">
+            <div class="SetRowContent">
+                <div id="SetProfileColumn">
+                    <b><a href="/">{{client}}</a></b>
+                </div>
+                <div style="font-family: 'Open Sans', sans-serif">
+                <br>
+                 {{description}}
+                </div>
+                <b style="margin-left: 25px;"><br>Offer: {{offer}}USD Email:{{email}}</b>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</body>
+</html>
