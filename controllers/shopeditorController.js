@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 // import module `User` from `../models/UserModel.js`
 const User = require('../models/UserModel.js');
+const Order = require('../models/OrderModel.js');
 const session = require('express-session');
 
 const shopeditorController = {
@@ -168,9 +169,12 @@ const shopeditorController = {
     }
     ,
     deleteAcc: function(req, res){
+        db.deleteMany(Order,{client:req.session.username});
         var conditions = {username:req.session.username};
         db.deleteOne(User,conditions);
         res.redirect('/logout');
+        
+        
     }
 }
 
